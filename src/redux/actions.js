@@ -73,9 +73,9 @@ export const filterGamesByGenre = (payload) => {
     payload: payload
   }
 }
-export const filterGamesByOrigin = () => {
+export const filterGamesCreated = () => {
   return {
-    type: "FILTER_GAMES_BY_ORIGIN",
+    type: "FILTER_GAMES_CREATED",
     payload: payload
   }
 }
