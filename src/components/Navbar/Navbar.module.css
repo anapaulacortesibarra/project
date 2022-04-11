@@ -1,0 +1,52 @@
+.Navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  background: #202020;
+}
+
+.text{
+  color: transparent;
+  -webkit-text-stroke: 1px white;
+  text-decoration: none !important;
+  margin-left: 10px;
+  font-size: 24px;
+}
+
+
+.textlink{
+  text-decoration: none;
+  color: white;
+  font-size: 30px;
+  padding: 6px 14px;
+}  
+
+.menu{
+  display: flex;
+  gap: 1em;
+  font-size: 18px;
+}
+
+
+.toggle{
+  display: none;
+  font-size: 35px;
+}
+
+
+
+@media only screen and (max-width: 768px){
+
+  .toogle{
+  display: block;
+  background-color: aqua;
+  }  
+
+  .menu{
+      text-align: center;
+      width: 100%;
+  }
+
+
+}

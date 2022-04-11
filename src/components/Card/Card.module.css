@@ -1,0 +1,59 @@
+.card{
+	position: relative;
+	width: 210px;
+	height: 350px;
+	box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+	margin-left: 25px;
+	margin-bottom: 20px;
+	border-radius: 6px;
+	overflow: hidden;
+	background: #202020 ;
+	transition: all 400ms ease-out;
+	cursor: default;
+} 
+
+.image{
+	width: 100%;
+	height: 120px;
+	overflow: hidden;
+	top:0;
+	left:0;
+	position: absolute;
+}
+
+.gameInfo{
+	width: 100%;
+	text-align: center;
+	margin-top: 0%;
+	height: 100%;
+	padding-top: 80px;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	justify-content: space-between;
+	color: whitesmoke;
+	
+}
+
+.name{
+	width: 100%;
+	height: 20px;
+	text-align: center;
+	font-size: 35px;
+	text-align: center;
+	
+}
+
+.button{
+ width: 210px;
+ height: 40px;
+ border: none;
+ color: white;
+ font-size: 18px;
+ background: #090909;
+ border: 1px solid #202020;
+ transition: all .3s;
+ box-shadow: 6px 6px 12px #c5c5c5,
+             -6px -6px 12px #252831;
+ cursor: pointer;
+}
