@@ -7,3 +7,30 @@ body {
   background-color: 	#101010;
  
 } 
+
+.countries_Page_Container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+      "searchBar"
+      "filtersandOrd"
+    "pagination";
+  justify-items: center; 
+  align-items: center;
+} 
+
+
+.pagination{
+  grid-area: pagination;
+}
+
+.filtersandOrd {
+  grid-area: filters;
+  
+}
+
+.searchBar {
+  grid-area: searchBar;
+} 
+
+

@@ -44,6 +44,14 @@
 	
 }
 
+.genres{
+	width: 90%;
+	height: 15px;
+	text-align: center;
+	font-size: 25px;
+	text-align: center;
+}
+
 .button{
  width: 210px;
  height: 40px;

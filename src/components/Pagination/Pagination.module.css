@@ -1,0 +1,20 @@
+.paginateContainer{
+  justify-content: center;
+}
+
+h1{
+  color: white;
+  justify-content: center
+}
+
+.pagination{
+  grid-area: pagination;
+}
+
+.cards{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-content: center;
+  width: 90%;
+  margin-left: 40px;
+}

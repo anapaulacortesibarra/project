@@ -2,6 +2,7 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Landing from './components/Landing/Landing';
 import Home from './components/Home/Home';
+import Detail from './components/Detail/Detail';
 
 function App() {
   return (
@@ -9,8 +10,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/videogames" element={<Home />} />
-        {/* <Route path="/countries/:id" element={<CountryDetail />}/>
-        <Route path="/activity" element={<Form/>}/> */}
+        <Route path="/videogame/:id" element={<Detail />} />
+        {/* <Route path="/activity" element={<Form />} /> */}
         <Route path="*" element={<Home />} />
       </Routes>
     </>

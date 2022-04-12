@@ -1,0 +1,18 @@
+.container{
+  width: 60%;
+}
+
+.image{
+  width: 60%;
+}
+
+.data{
+  color: whitesmoke;
+  align-items: center;
+}
+
+
+.loading{
+	font-size: 25px;
+	text-align: center;
+}
