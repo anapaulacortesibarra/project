@@ -1,4 +1,5 @@
 import ClearFilters from '../Filters/ClearFilters';
+import FilterByGenre from '../Filters/FilterByGenre';
 import FilterByOrigin from '../Filters/FilterByOrigin';
 import style from '../FiltersandOrd/FiltersandOrd.module.css'
 import OrderingByAlph from '../Ordering/OrderingByALph';
@@ -12,6 +13,7 @@ const FiltersandOrd = () => {
                 <OrderingByAlph />
                 <OrderingByRating />
                 <FilterByOrigin />
+                <FilterByGenre />
             </div>
 
             <div className={style.btnCleanFilters}>
