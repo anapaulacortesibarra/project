@@ -54,6 +54,21 @@ export const getGenres = () => {
   }
 }
 
+export const getPlatforms = () => {
+  return async function (dispatch) {
+    try {
+      let data = await axios.get(`http://localhost:3001/platforms`)
+      return dispatch({
+        type: "GET_PLATFORMS",
+        payload: data
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
+
 export const createVideogame = (payload) => {
   return function (dispatch) {
     axios.post(`http://localhost:3001/videogame`, payload)

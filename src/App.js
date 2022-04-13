@@ -11,7 +11,7 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/videogames" element={<Home />} />
         <Route path="/videogame/:id" element={<Detail />} />
-        {/* <Route path="/activity" element={<Form />} /> */}
+        {/* <Route path="/videogame" element={<Form />} /> */}
         <Route path="*" element={<Home />} />
       </Routes>
     </>
