@@ -26,3 +26,5 @@ const Validation = (e) => {
   return error
 
 }
+
+export default Validation;

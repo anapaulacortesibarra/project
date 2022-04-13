@@ -1,7 +1,7 @@
-import { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import FormValidation from './FormValidation'
-import { createVideogame } from '../../redux/actions'
+import { createVideogame, getGenres } from '../../redux/actions'
 import style from './Form.module.css'
 
 
@@ -21,6 +21,11 @@ const Form = () => {
   const [error, setError] = useState();
 
   const dispatch = useDispatch()
+  const genres = useSelector(state => state.genres)
+
+  useEffect(() => {
+    dispatch(getGenres())
+  }, [dispatch])
 
   const handleInputChange = (e) => {
     setInput({
@@ -30,6 +35,16 @@ const Form = () => {
       ...FormValidation({ ...input, [e.target.name]: e.target.value })
     })
   }
+
+  const handleGenreSelection = (e) => {
+    setInput({
+      ...input, genreId: [...input.genreId, e.target.value]
+    })
+    setError({
+      ...FormValidation({ ...input, genreId: [...input.genreId, e.target.value] })
+    })
+  }
+
 
   const handleSubmit = (e) => {
     if (input.name && input.description && input.released && input.rating && input.genreId && input.platforms) {
@@ -72,17 +87,23 @@ const Form = () => {
       <input name="rating" value={input.rating} onChange={(e) => handleInputChange(e)} />
       {error.rating && (<p className={style.error}>{error.rating}</p>)}
 
+      <label> Genres: </label>
+      <select name="genreId" value={input.genreId} multiple={true} onChange={(e) => handleGenreSelection(e)}>
+        {
+          Object.keys(genres).length
+            ? genres.data.map(g =>
+              <option key={g.id} value={g.name}>{g.name}</option>
+            )
+            : 'Loading'
+        }
+      </select>
+      {error.genreId && (<p>{error.genreId}</p>)}
+
+      {/* <label> Platforms: </label>
+      <select >
 
 
-
-
-
-
-
-
-
-
-
+      </select> */}
     </form>
   )
 }
