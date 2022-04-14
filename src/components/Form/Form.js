@@ -15,7 +15,7 @@ const Form = () => {
     released: '',
     rating: '',
     genreId: [],
-    platforms: []
+    platformsId: []
   }
 
   const dispatch = useDispatch()
@@ -52,9 +52,9 @@ const Form = () => {
 
   const handleSelectPlatforms = (e) => {
     setInput({
-      ...input, platforms: [...new Set([...input.platforms, e.target.value])]
+      ...input, platformsId: [...new Set([...input.platformsId, e.target.value])]
     })
-    setError(FormValidation({ ...input, platforms: [...input.platforms, e.target.value] }))
+    setError(FormValidation({ ...input, platformsId: [...input.platformsId, e.target.value] }))
   }
 
   const handleSubmit = (e) => {
@@ -69,7 +69,7 @@ const Form = () => {
         released: '',
         rating: '',
         genreId: [],
-        platforms: []
+        platformsId: []
 
       });
 
@@ -78,6 +78,8 @@ const Form = () => {
       alert("You must complete every field!");
     }
   }
+
+  console.log(input.platformsId, 'aqui')
 
   return (
     <div className={style.backgroundContainer}>
@@ -124,7 +126,7 @@ const Form = () => {
           {error.genreId && (<p className={style.error}>{error.genreId}</p>)}
 
           <label className={style.text}> Platforms: </label>
-          <select className={style.search} name="platforms" value={input.platforms} multiple={true} onChange={(e) => handleSelectPlatforms(e)} >
+          <select className={style.search} name="platformsId" value={input.platformsId} multiple={true} onChange={(e) => handleSelectPlatforms(e)}  >
             {
               platforms.data?.map(platform =>
                 <option>{platform}</option>
@@ -134,17 +136,13 @@ const Form = () => {
 
           <div>
             <h4 className={style.text}> Platforms selected:</h4>
-            {
-
+            {/* {
               input.platforms?.map(el => (
                 <div className={style.selected}> {el}</div>
               ))
-
             }
-
+            {error.platforms && (<p className={style.error}>{error.platforms}</p>)} */}
           </div>
-
-
 
           <button className={style.btn} onClick={(e) => handleSubmit(e)} >create</button>
 

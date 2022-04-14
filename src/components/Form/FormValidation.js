@@ -22,11 +22,11 @@ const Validation = (e) => {
     }
   }
 
-  if (e.platforms === "" || e.platforms.length === 0) error.platforms = 'A platform is required'
+  if (e.platformsId === "" || e.platformsId.length === 0) error.platformsId = 'A platform is required'
 
-  for (let i = 0; i < e.platforms.length; i++) {
-    for (let y = 0; y < e.platforms.length; i++) {
-      if (e.platforms[i] === e.platforms[y]) error.platforms = 'Platforms can not be repeated'
+  for (let i = 0; i < e.platformsId.length; i++) {
+    for (let y = i + 1; y <= e.platformsId.length; y++) {
+      if (e.platformsId[i] === e.platformsId[y]) error.platformsId = 'Platforms can not be repeated'
     }
   }
 
