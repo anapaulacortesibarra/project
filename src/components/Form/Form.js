@@ -1,9 +1,9 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import style from './Form.module.css'
 import NavBar from '../Navbar/Navbar'
 import FormValidation from './FormValidation'
-import { createVideogame } from '../../redux/actions'
-import { useDispatch } from 'react-redux'
+import { createVideogame, getGenres } from '../../redux/actions'
+import { useDispatch, useSelector } from 'react-redux'
 
 
 
@@ -17,6 +17,15 @@ const Form = () => {
   }
 
   const dispatch = useDispatch()
+  const genres = useSelector(state => state.genres)
+
+  // console.log(genres.data.map(el => el.name), 'aqui')
+
+  useEffect(() => {
+    dispatch(getGenres())
+  }, [dispatch])
+
+  console.log(genres)
 
   const [input, setInput] = useState(initialValues);
   const [error, setError] = useState('')
@@ -42,6 +51,7 @@ const Form = () => {
         description: '',
         released: '',
         rating: '',
+        genreId: []
 
       });
 
@@ -76,7 +86,13 @@ const Form = () => {
           <input className={style.input} name="rating" value={input.rating} onChange={(e) => handleInputChange(e)} />
           {error.rating && (<p className={style.error}>{error.rating}</p>)}
 
+          <select>
+            {
+              genres.data?.map(el =>
+                <option>{el.name}</option>)
 
+            }
+          </select>
 
 
 
@@ -89,3 +105,20 @@ const Form = () => {
 }
 
 export default Form;
+
+
+// console.log(genres)
+// {data: Array(19), status: 200, statusText: 'OK', headers: {…}, config: {…}, …}
+
+
+
+
+// console.log(genres.data.map(el => el.name), 'aqui')
+// 0: "Action"
+// 1: "Indie"
+// 2: "Adventure"
+// 3: "RPG"
+// 4: "Strategy"
+// 5: "Shooter"
+// 6: "Casual"
+// 7: "Simulation
