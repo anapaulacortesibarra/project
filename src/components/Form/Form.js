@@ -11,7 +11,7 @@ const Form = () => {
 
   const initialValues = {
     name: '',
-    description: '',
+    description_raw: '',
     released: '',
     rating: '',
     genreId: [],
@@ -65,7 +65,7 @@ const Form = () => {
 
       setInput({
         name: '',
-        description: '',
+        description_raw: '',
         released: '',
         rating: '',
         genreId: [],
@@ -91,9 +91,9 @@ const Form = () => {
           <input className={style.input} name="name" value={input.name} onChange={(e) => handleInputChange(e)} />
           {error.name && (<p className={style.error}>{error.name}</p>)}
 
-
           <label className={style.text}> Description: </label>
-          <input className={style.input} name="description" value={input.description} onChange={(e) => handleInputChange(e)} />
+          <input className={style.input} name="description_raw" value={input.description_raw} onChange={(e) => handleInputChange(e)} />
+          {error.description_raw && (<p className={style.error}>{error.description_raw}</p>)}
 
           <label className={style.text}> Released: </label>
           <input className={style.input} name="released" value={input.released} onChange={(e) => handleInputChange(e)} />
