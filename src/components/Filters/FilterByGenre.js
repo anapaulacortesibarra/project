@@ -18,6 +18,9 @@ const FilterByGenre = () => {
     dispatch(filterGamesByGenre(e.target.value))
   }
 
+  // console.log(Object.keys(genres.data), 'aqui')
+
+
   return (
     <select className={style.selectContainer} onChange={(e) => handleFilterGenre(e)}>
       <option value="" hidden>Filter by Genres</option>

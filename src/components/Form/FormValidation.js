@@ -14,17 +14,14 @@ const Validation = (e) => {
 
   if (!releasedVal.test(e.released)) error.released = message;
 
-  if (e.genreId.length === "" || e.genreId.length === 0) error.genreId = 'A genre is required'
+  // if (e.genreId.length === "" || e.genreId.length === 0) error.genreId = 'A genre is required'
 
-  for (let i = 0; i < e.genreId.length; i++) {
-    for (let y = i + 1; y <= e.genreId.length; y++) {
-      if (e.genreId[i] === e.genreId[y]) error.genreId = "The genres can not be repeated"
-    }
-  }
-
-
+  // for (let i = 0; i < e.genreId.length; i++) {
+  //   for (let y = i + 1; y <= e.genreId.length; y++) {
+  //     if (e.genreId[i] === e.genreId[y]) error.genreId = "The genres can not be repeated"
+  //   }
+  // }
   return error
-
 }
 
 export default Validation;

@@ -23,7 +23,7 @@ const Detail = () => {
         {
           Object.keys(game).length ?
             <div className={style.detailContainer}>
-              <img className={style.image} src={game.data.background_image} />
+              <img className={style.image} src={game.data.background_image} alt={'img'} />
               <div className={style.data}>
                 <h3 >{game.data.name}</h3>
                 <h6>Genres: {game.data.genres}</h6>
