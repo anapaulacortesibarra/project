@@ -14,13 +14,23 @@ const Validation = (e) => {
 
   if (!releasedVal.test(e.released)) error.released = message;
 
-  // if (e.genreId.length === "" || e.genreId.length === 0) error.genreId = 'A genre is required'
+  if (e.genreId.length === "" || e.genreId.length === 0) error.genreId = 'A genre is required'
 
-  // for (let i = 0; i < e.genreId.length; i++) {
-  //   for (let y = i + 1; y <= e.genreId.length; y++) {
-  //     if (e.genreId[i] === e.genreId[y]) error.genreId = "The genres can not be repeated"
-  //   }
-  // }
+  for (let i = 0; i < e.genreId.length; i++) {
+    for (let y = i + 1; y <= e.genreId.length; y++) {
+      if (e.genreId[i] === e.genreId[y]) error.genreId = "The genres can not be repeated"
+    }
+  }
+
+  if (e.platforms === "" || e.platforms.length === 0) error.platforms = 'A platform is required'
+
+  for (let i = 0; i < e.platforms.length; i++) {
+    for (let y = 0; y < e.platforms.length; i++) {
+      if (e.platforms[i] === e.platforms[y]) error.platforms = 'Platforms can not be repeated'
+    }
+  }
+
+
   return error
 }
 
