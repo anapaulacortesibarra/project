@@ -86,10 +86,10 @@ const Form = () => {
           <input className={style.input} name="rating" value={input.rating} onChange={(e) => handleInputChange(e)} />
           {error.rating && (<p className={style.error}>{error.rating}</p>)}
 
-          <select>
+          <select name="genreId" value={input.genreId}>
             {
               genres.data?.map(el =>
-                <option>{el.name}</option>)
+                <option key={el.id} name="genre" value={el.id}>{el.name}</option>)
 
             }
           </select>
