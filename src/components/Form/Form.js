@@ -136,12 +136,12 @@ const Form = () => {
 
           <div>
             <h4 className={style.text}> Platforms selected:</h4>
-            {/* {
-              input.platforms?.map(el => (
+            {
+              input.platformsId?.map(el => (
                 <div className={style.selected}> {el}</div>
               ))
             }
-            {error.platforms && (<p className={style.error}>{error.platforms}</p>)} */}
+            {error.platformsId && (<p className={style.error}>{error.platformsId}</p>)}
           </div>
 
           <button className={style.btn} onClick={(e) => handleSubmit(e)} >create</button>
