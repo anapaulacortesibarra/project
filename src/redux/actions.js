@@ -35,7 +35,7 @@ export const getVideogameDetail = (payload) => {
         payload: response
       })
     } catch (error) {
-      console.log(error)
+      alert(error, 'The videogame does not exist')
     }
   }
 }
