@@ -4,7 +4,8 @@ const InitialState = {
   videogamesCopy: [],
   detail: [],
   genres: [],
-  platforms: []
+  platforms: [],
+  notifications: []
 }
 
 const rootReducer = (state = InitialState, action) => {

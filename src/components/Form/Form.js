@@ -13,12 +13,16 @@ const Form = () => {
     released: '',
     rating: '',
     genreId: [],
-    platformsId: []
+    platforms: []
   }
 
   const dispatch = useDispatch()
   const genres = useSelector(state => state.genres)
   const platforms = useSelector(state => state.platforms)
+
+  // console.log(genres.data.find(el => el.id === 4))
+
+
 
   useEffect(() => {
     dispatch(getGenres())
@@ -44,17 +48,19 @@ const Form = () => {
     e.preventDefault();
     setInput({
       ...input, genreId: [...new Set([...input.genreId, e.target.value])]
+
     })
-    console.log(input, 'aqui')
+    console.log(input.genreId)
     setError(FormValidation({ ...input, genreId: [...input.genreId, e.target.value] }))
   }
 
   const handleSelectPlatforms = (e) => {
     e.preventDefault();
     setInput({
-      ...input, platformsId: [...new Set([...input.platformsId, e.target.value])]
+      ...input, platforms: [...new Set([...input.platforms, e.target.value])]
     })
-    setError(FormValidation({ ...input, platformsId: [...input.platformsId, e.target.value] }))
+
+    setError(FormValidation({ ...input, platforms: [...input.platforms, e.target.value] }))
   }
 
   const deleteSelectGenre = (genre) => {
@@ -63,12 +69,12 @@ const Form = () => {
   }
 
   const deleteSelectPlatforms = (el) => {
-    setInput({ ...input, platformsId: input.platformsId.filter(p => p !== el) })
+    setInput({ ...input, platforms: input.platforms.filter(p => p !== el) })
   }
 
 
   const handleSubmit = (e) => {
-    if (input.name && input.description && input.released && input.rating && input.genreId.length > 0 && input.platformsId.length > 0) {
+    if (input.name && input.description_raw && input.released && input.rating && input.genreId.length > 0 && input.platforms.length > 0) {
       e.preventDefault();
       dispatch(createVideogame(input));
       alert("The game was succesfully Created!");
@@ -79,7 +85,7 @@ const Form = () => {
         released: '',
         rating: '',
         genreId: [],
-        platformsId: []
+        platforms: []
       });
 
     } else {
@@ -116,7 +122,7 @@ const Form = () => {
             <select className={style.search} name="genreId" value={input.genreId} multiple={true} onChange={(e) => handleSelectGenre(e)}>
               {
                 genres.data?.map(el =>
-                  <option value={el.name} key={el.id}>{el.name}</option>)
+                  <option name={el.name} value={el.id} key={el.id}>{el.name}</option>)
               }
             </select>
           </div>
@@ -125,19 +131,22 @@ const Form = () => {
             <h4 className={style.text}> Genres selected:</h4>
             {
               input.genreId.length > 0 ?
-                input.genreId?.map(genre => (
-                  <div key={genre}>
-                    <div className={style.selected}>{genre}</div>
-                    <button className={style.deleteBtn} onClick={() => deleteSelectGenre(genre)}>X</button>
-                  </div>
-                ))
+                input.genreId?.map(item => {
+                  let selected = genres.data.find(el => el.id == item)
+                  return (
+                    <div key={selected.id}>
+                      <div className={style.selected}>{selected.name}</div>
+                      <button className={style.deleteBtn} onClick={() => deleteSelectGenre(selected)}>X</button>
+                    </div>
+                  )
+                })
                 : ""
             }
           </div>
           {error.genreId && (<p className={style.error}>{error.genreId}</p>)}
 
           <label className={style.text}> Platforms: </label>
-          <select className={style.search} name="platformsId" value={input.platformsId} multiple={true} onChange={(e) => handleSelectPlatforms(e)}  >
+          <select className={style.search} name="platforms" value={input.platforms} multiple={true} onChange={(e) => handleSelectPlatforms(e)}  >
             {
               platforms.data?.map(platform =>
                 <option key={platform}>{platform}</option>
@@ -148,14 +157,14 @@ const Form = () => {
           <div>
             <h4 className={style.text}> Platforms selected:</h4>
             {
-              input.platformsId?.map(el => (
+              input.platforms?.map(el => (
                 <div key={el}>
                   <div className={style.selected} > {el}</div>
                   <button className={style.deleteBtn} onClick={() => deleteSelectPlatforms(el)} > X </button>
                 </div>
               ))
             }
-            {error.platformsId && (<p className={style.error}>{error.platformsId}</p>)}
+            {error.platforms && (<p className={style.error}>{error.platforms}</p>)}
           </div>
 
           <button className={style.btn} type="submit" onClick={(e) => handleSubmit(e)} >Create videogame</button>

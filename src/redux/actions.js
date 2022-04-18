@@ -34,8 +34,9 @@ export const getVideogameDetail = (payload) => {
         type: "VIDEOGAME_DETAIL",
         payload: response
       })
-    } catch (error) {
-      alert(error, 'The videogame does not exist')
+    } catch (err) {
+      alert(err, 'The videogame does not exist')
+
     }
   }
 }
@@ -109,3 +110,11 @@ export const sortGamesByRating = (payload) => {
   }
 }
 
+export function addNotification({ description, type }) {
+  const id = Math.floor(Math.random() * 101 + 1);
+  return { type: "ADD_NOTIFICATION", payload: { type, description, id } }
+}
+
+export function deleteNotification(id) {
+  return { type: "DELETE_NOTIFICATION", payload: { id } };
+}
