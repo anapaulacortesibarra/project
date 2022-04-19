@@ -47,8 +47,6 @@ const Pagination = () => {
     }
   }
 
-
-
   return (
     <div className={style.paginateContainer}>
       <div className={style.ButtonNumber}>

@@ -4,10 +4,10 @@ const Validation = (e) => {
   let error = {}
 
   const message = 'This field must be filled in'
-  const nameVal = new RegExp(/^([a-zA-Z]|[^0-9]\S)([^0-9]*){1,}$/); //star matches 0 o más del item anterior
+  const nameVal = new RegExp(/^([a-zA-Z]|[^0-9]\S)([^0-9]*){1,}$/);
   const descriptionVal = new RegExp(/^([a-zA-Z]|[^0-9]\S)([^0-9]*){1,100}$/);
   const ratingVal = new RegExp(/^([0-9])(\.[0-5]{1})?$/);
-  const releasedVal = new RegExp(/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/)
+  const releasedVal = new RegExp(/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/);
 
   if (!nameVal.test(e.name)) error.name = message;
 
@@ -32,9 +32,6 @@ const Validation = (e) => {
       if (e.platforms[i] === e.platforms[y]) error.platforms = 'Platforms can not be repeated'
     }
   }
-
-
   return error
 }
-
 export default Validation;

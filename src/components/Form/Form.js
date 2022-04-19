@@ -20,10 +20,6 @@ const Form = () => {
   const genres = useSelector(state => state.genres)
   const platforms = useSelector(state => state.platforms)
 
-  // console.log(genres.data.find(el => el.id === 4))
-
-
-
   useEffect(() => {
     dispatch(getGenres())
   }, [dispatch])
@@ -31,7 +27,6 @@ const Form = () => {
   useEffect(() => {
     dispatch(getPlatforms())
   }, [dispatch])
-
 
   const [input, setInput] = useState(initialValues);
   const [error, setError] = useState('')
@@ -50,7 +45,6 @@ const Form = () => {
       ...input, genreId: [...new Set([...input.genreId, e.target.value])]
 
     })
-    console.log(input.genreId)
     setError(FormValidation({ ...input, genreId: [...input.genreId, e.target.value] }))
   }
 
@@ -63,8 +57,8 @@ const Form = () => {
     setError(FormValidation({ ...input, platforms: [...input.platforms, e.target.value] }))
   }
 
-  const deleteSelectGenre = (genre) => {
-    setInput({ ...input, genreId: input.genreId.filter(el => el !== genre) })
+  const deleteSelectGenre = (item) => {
+    setInput({ ...input, genreId: input.genreId.filter(el => el !== item) })
 
   }
 
@@ -132,11 +126,11 @@ const Form = () => {
             {
               input.genreId.length > 0 ?
                 input.genreId?.map(item => {
-                  let selected = genres.data.find(el => el.id == item)
+                  let genre = genres.data.find(el => el.id == item)
                   return (
-                    <div key={selected.id}>
-                      <div className={style.selected}>{selected.name}</div>
-                      <button className={style.deleteBtn} onClick={() => deleteSelectGenre(selected)}>X</button>
+                    <div key={genre.id}>
+                      <div className={style.selected}>{genre.name}</div>
+                      <button className={style.deleteBtn} onClick={() => deleteSelectGenre(item)}>X</button>
                     </div>
                   )
                 })

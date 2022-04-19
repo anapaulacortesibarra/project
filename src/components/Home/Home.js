@@ -4,9 +4,7 @@ import Searchbar from '../Searchbar/Searchbar'
 import Pagination from '../Pagination/Pagination';
 import FiltersandOrd from '../FiltersandOrd/FiltersandOrd'
 
-
 const Home = () => {
-
 
   return (
     <div className={style.container}>
@@ -17,8 +15,6 @@ const Home = () => {
         <div className={style.pagination}><Pagination /></div>
       </div>
     </div>
-
   )
 }
-
 export default Home;

@@ -8,7 +8,6 @@ const FilterByGenre = () => {
   let genres = useSelector((state) => state.genres)
   const dispatch = useDispatch()
 
-
   useEffect(() => {
     dispatch(getGenres())
   }, [dispatch])
@@ -17,9 +16,6 @@ const FilterByGenre = () => {
     e.preventDefault();
     dispatch(filterGamesByGenre(e.target.value))
   }
-
-  // console.log(Object.keys(genres.data), 'aqui')
-
 
   return (
     <select className={style.selectContainer} onChange={(e) => handleFilterGenre(e)}>
@@ -31,10 +27,8 @@ const FilterByGenre = () => {
             <option key={g.id} value={g.name}>{g.name}</option>
           )
           : 'Loading'
-
       }
     </select>
   )
-
 }
 export default FilterByGenre;

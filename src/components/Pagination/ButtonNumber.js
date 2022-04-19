@@ -4,13 +4,10 @@ import style from './ButtonNumber.module.css'
 function ButtonNumber({ gamesPerPage, videogamesCopy, setCurrentPage, currentPage, maxPageNumberLimit, minPageNumberLimit, handlePrevBtn, handleNextBtn }) {
 
   const pageNumber = []
-
   const handlePage = (e, number) => {
     e.preventDefault();
     setCurrentPage(Number(number))
   }
-
-
 
   for (let i = 1; i <= Math.ceil(videogamesCopy / gamesPerPage); i++) {
     pageNumber.push(i);

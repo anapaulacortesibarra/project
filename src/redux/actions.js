@@ -109,12 +109,3 @@ export const sortGamesByRating = (payload) => {
     payload: payload
   }
 }
-
-export function addNotification({ description, type }) {
-  const id = Math.floor(Math.random() * 101 + 1);
-  return { type: "ADD_NOTIFICATION", payload: { type, description, id } }
-}
-
-export function deleteNotification(id) {
-  return { type: "DELETE_NOTIFICATION", payload: { id } };
-}

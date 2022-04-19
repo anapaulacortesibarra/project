@@ -5,7 +5,6 @@ const InitialState = {
   detail: [],
   genres: [],
   platforms: [],
-  notifications: []
 }
 
 const rootReducer = (state = InitialState, action) => {

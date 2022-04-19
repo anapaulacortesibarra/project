@@ -18,7 +18,6 @@ const Searchbar = () => {
       dispatch(getVideogameByName(name))
       setName('');
     }
-
   }
 
   return (
