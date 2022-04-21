@@ -20,9 +20,9 @@ const FilterByGenre = () => {
   return (
     <select className={style.selectContainer} onChange={(e) => handleFilterGenre(e)}>
       <option value="" hidden>Filter by Genres</option>
+      <option value="all">All</option>
       {
-        Object.keys(genres).length
-
+        Object.keys(genres).length && genres.data
           ? genres.data.map(g =>
             <option key={g.id} value={g.name}>{g.name}</option>
           )

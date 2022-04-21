@@ -53,7 +53,6 @@ const Form = () => {
     setInput({
       ...input, platforms: [...new Set([...input.platforms, e.target.value])]
     })
-
     setError(FormValidation({ ...input, platforms: [...input.platforms, e.target.value] }))
   }
 
@@ -65,7 +64,6 @@ const Form = () => {
   const deleteSelectPlatforms = (el) => {
     setInput({ ...input, platforms: input.platforms.filter(p => p !== el) })
   }
-
 
   const handleSubmit = (e) => {
     if (input.name && input.description_raw && input.released && input.rating && input.genreId.length > 0 && input.platforms.length > 0) {
@@ -104,11 +102,11 @@ const Form = () => {
           {error.description_raw && (<p className={style.error}>{error.description_raw}</p>)}
 
           <label className={style.text}> Released: </label>
-          <input className={style.input} name="released" value={input.released} onChange={(e) => handleInputChange(e)} />
+          <input className={style.input} name="released" value={input.released} placeholder="Ex: 1994-07-21" onChange={(e) => handleInputChange(e)} />
           {error.released && (<p className={style.error}>{error.released}</p>)}
 
           <label className={style.text}> Rating: </label>
-          <input className={style.input} name="rating" value={input.rating} onChange={(e) => handleInputChange(e)} />
+          <input className={style.input} name="rating" value={input.rating} placeholder="Ex: 5 or 4.5" onChange={(e) => handleInputChange(e)} />
           {error.rating && (<p className={style.error}>{error.rating}</p>)}
 
           <div>
@@ -164,6 +162,7 @@ const Form = () => {
           <button className={style.btn} type="submit" onClick={(e) => handleSubmit(e)} >Create videogame</button>
         </form >
       </div>
+
     </div>
   )
 }

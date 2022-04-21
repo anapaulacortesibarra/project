@@ -5,6 +5,14 @@ const InitialState = {
   detail: [],
   genres: [],
   platforms: [],
+  objectNull: [
+    {
+      id: "404NF",
+      name: "There are no games for this search.",
+      background_image:
+        "https://onlinezebra.com/wp-content/uploads/2019/01/error-404-not-found.jpg",
+    },
+  ],
 }
 
 const rootReducer = (state = InitialState, action) => {
@@ -26,7 +34,7 @@ const rootReducer = (state = InitialState, action) => {
     case "FILTER_GAMES_BY_GENRE":
       const videogames = state.videogames
       const filtered = action.payload === "all" ? videogames : videogames.filter((videogames) => videogames.genres.includes(action.payload))
-      return { ...state, videogamesCopy: filtered }
+      return { ...state, videogamesCopy: filtered.length > 0 ? filtered : state.objectNull }
 
     case "SORT_GAMES_BY_ALPH":
       let sortByAlph = [...state.videogamesCopy];
@@ -63,6 +71,8 @@ const rootReducer = (state = InitialState, action) => {
       const allVideogames = state.videogames
       const createdFilter = action.payload === "created" ? allVideogames.filter(el => el.createdInDb) : allVideogames.filter(el => !el.createdInDb)
       return { ...state, videogamesCopy: action.payload === "all" ? allVideogames : createdFilter }
+
+
 
     default:
       return state

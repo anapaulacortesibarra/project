@@ -69,7 +69,6 @@ export const getPlatforms = () => {
   }
 }
 
-
 export const createVideogame = (payload) => {
   return function (dispatch) {
     axios.post(`http://localhost:3001/videogame`, payload)
@@ -109,3 +108,5 @@ export const sortGamesByRating = (payload) => {
     payload: payload
   }
 }
+
+

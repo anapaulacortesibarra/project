@@ -18,11 +18,6 @@ const Navbar = () => {
           <div>
             <Link to='/videogame' className={style.textlink}>Create Videogame</Link>
           </div>
-
-          <div className={style.toggle}>
-            <label htmlFor="toggle"> &#9776;</label>
-            <input type="checkbox" id="toggle" />
-          </div>
         </div>
 
       </ul>
