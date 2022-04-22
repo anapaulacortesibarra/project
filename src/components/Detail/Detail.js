@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { getVideogameDetail } from '../../redux/actions';
+import { cleanDetail, getVideogameDetail } from '../../redux/actions';
 import Navbar from '../Navbar/Navbar';
 import style from './Detail.module.css'
 
@@ -14,7 +14,8 @@ const Detail = () => {
 
   useEffect(() => {
     dispatch(getVideogameDetail(gameId))
-  }, [dispatch, gameId, game]);
+    return () => { dispatch(cleanDetail()) }
+  }, [gameId]);
 
   return (
     <div>

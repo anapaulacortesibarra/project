@@ -3,6 +3,7 @@ import style from './Card.module.css'
 
 const Card = ({ name, background_image, genres, id }) => {
 
+
   return (
     <div key={id} className={style.card}>
       <img className={style.image} src={background_image} alt='not found' />

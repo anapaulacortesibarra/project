@@ -109,4 +109,8 @@ export const sortGamesByRating = (payload) => {
   }
 }
 
-
+export const cleanDetail = () => {
+  return {
+    type: "CLEAN_DETAIL",
+  }
+}
