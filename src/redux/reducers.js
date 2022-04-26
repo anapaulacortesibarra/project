@@ -69,12 +69,10 @@ const rootReducer = (state = InitialState, action) => {
 
       return { ...state, videogamesCopy: [...rating] }
 
-    case "FILTER_GAMES_CREATED":
-      const allVideogames = state.videogames
-      const createdFilter = action.payload === "created" ? allVideogames.filter(el => el.createdInDb) : allVideogames.filter(el => !el.createdInDb)
-      return { ...state, videogamesCopy: action.payload === "all" ? allVideogames : createdFilter }
-
-
+    case "FILTER_BY_ORIGIN":
+      return {
+        ...state, videogamesCopy: action.payload
+      }
 
     default:
       return state

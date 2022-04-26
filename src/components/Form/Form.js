@@ -4,10 +4,13 @@ import NavBar from '../Navbar/Navbar'
 import FormValidation from './FormValidation'
 import { createVideogame, getGenres, getPlatforms } from '../../redux/actions'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom';
+
 
 const Form = () => {
 
   const initialValues = {
+    background_image: '',
     name: '',
     description_raw: '',
     released: '',
@@ -17,6 +20,7 @@ const Form = () => {
   }
 
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const genres = useSelector(state => state.genres)
   const platforms = useSelector(state => state.platforms)
 
@@ -72,6 +76,7 @@ const Form = () => {
       alert("The game was succesfully Created!");
 
       setInput({
+        background_image: '',
         name: '',
         description_raw: '',
         released: '',
@@ -80,6 +85,7 @@ const Form = () => {
         platforms: []
       });
 
+      navigate("/videogames");
     } else {
       e.preventDefault();
       alert("You must complete every field!");
@@ -93,6 +99,10 @@ const Form = () => {
       <div className={style.container}>
         <h3 className={style.titleText}>CREATE VIDEOGAME</h3>
         <form >
+          <label className={style.text}> Image: </label>
+          <input className={style.input} name="background_image" value={input.background_image} onChange={(e) => handleInputChange(e)} />
+          {error.background_image && (<p className={style.error}>{error.background_image}</p>)}
+
           <label className={style.text}> Name: </label>
           <input className={style.input} name="name" value={input.name} onChange={(e) => handleInputChange(e)} />
           {error.name && (<p className={style.error}>{error.name}</p>)}
@@ -111,7 +121,7 @@ const Form = () => {
 
           <div>
             <label className={style.text}> Genre: </label>
-            <select className={style.search} name="genreId" value={input.genreId} multiple={true} onChange={(e) => handleSelectGenre(e)}>
+            <select className={style.search} name="genreId" value={input.genreId} onChange={(e) => handleSelectGenre(e)}>
               {
                 genres.data?.map(el =>
                   <option name={el.name} value={el.id} key={el.id}>{el.name}</option>)
@@ -138,7 +148,7 @@ const Form = () => {
           {error.genreId && (<p className={style.error}>{error.genreId}</p>)}
 
           <label className={style.text}> Platforms: </label>
-          <select className={style.search} name="platforms" value={input.platforms} multiple={true} onChange={(e) => handleSelectPlatforms(e)}  >
+          <select className={style.search} name="platforms" value={input.platforms} onChange={(e) => handleSelectPlatforms(e)}  >
             {
               platforms.data?.map(platform =>
                 <option key={platform}>{platform}</option>

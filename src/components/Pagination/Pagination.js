@@ -15,6 +15,7 @@ const Pagination = () => {
   const indexOfFirstGame = indexOfLastGame - gamesPerPage; //0
   const currentGames = videogames.slice(indexOfFirstGame, indexOfLastGame)
   const dispatch = useDispatch();
+  const genres = useSelector((state => state.genres))
 
   useEffect(() => {
     dispatch(getVideogames());
@@ -22,7 +23,7 @@ const Pagination = () => {
 
   useEffect(() => {
     setCurrentPage(1)
-  }, [videogames]);
+  }, [videogames, genres]);
 
   const [pageNumberLimit, setPageNumberLimit] = useState(5);
   const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5);

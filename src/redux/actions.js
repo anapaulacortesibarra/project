@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+
 export const getVideogames = () => {
   return function (dispatch) {
     axios.get(`http://localhost:3001/videogames`)
@@ -88,12 +89,20 @@ export const filterGamesByGenre = (payload) => {
     payload: payload
   }
 }
-export const filterGamesCreated = (payload) => {
-  return {
-    type: "FILTER_GAMES_CREATED",
-    payload: payload
+
+export const filterByOrigin = (payload) => {
+  return function (dispatch) {
+    axios.get(`http://localhost:3001/videogames/origen?origen=${payload}`)
+      .then(results => results.data)
+      .then(data => {
+        dispatch({
+          type: "FILTER_BY_ORIGIN",
+          payload: data
+        })
+      })
   }
 }
+
 
 export const sortGamesByAlph = (payload) => {
   return {

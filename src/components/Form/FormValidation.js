@@ -5,11 +5,14 @@ const Validation = (e) => {
 
   const message = 'This field must be filled in'
   const nameVal = new RegExp(/^([a-zA-Z]|[^0-9]\S)([^0-9]*){1,}$/);
+  const imgVal = new RegExp(/\.(jpg|png)$/);
   const descriptionVal = new RegExp(/^([a-zA-Z]|[^0-9]\S)([^0-9]*)$/);
   const ratingVal = new RegExp(/^([0-5])(\.[0-9]{1})?$/);
   const releasedVal = new RegExp(/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/);
 
   if (!nameVal.test(e.name)) error.name = message;
+
+  if (!imgVal.test(e.background_image)) error.background_image = message;
 
   if (!descriptionVal.test(e.description_raw)) error.description_raw = message;
 

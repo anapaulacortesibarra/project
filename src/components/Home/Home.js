@@ -6,6 +6,7 @@ import FiltersandOrd from '../FiltersandOrd/FiltersandOrd'
 
 const Home = () => {
 
+
   return (
     <div className={style.container}>
       <div><Navbar /></div>
