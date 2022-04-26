@@ -4,7 +4,6 @@ import style from './Navbar.module.css';
 
 const Navbar = () => {
 
-
   return (
     <header className={style.Navbar}>
       <Link to="/" className={style.text}>

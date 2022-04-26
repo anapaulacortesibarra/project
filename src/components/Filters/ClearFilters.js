@@ -15,5 +15,4 @@ const ClearFilters = () => {
     <button className={style.btn} onClick={(e) => handleClick(e)}>Clear Filters</button>
   )
 }
-
 export default ClearFilters;

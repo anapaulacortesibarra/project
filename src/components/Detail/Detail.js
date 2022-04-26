@@ -18,7 +18,6 @@ const Detail = () => {
     return () => { dispatch(cleanDetail()) }
   }, [gameId]);
 
-
   return (
     <div>
       <Navbar />

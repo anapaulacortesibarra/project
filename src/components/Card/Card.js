@@ -17,5 +17,4 @@ const Card = ({ name, background_image, genres, id }) => {
     </div>
   )
 }
-
 export default Card;

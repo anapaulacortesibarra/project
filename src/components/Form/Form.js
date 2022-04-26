@@ -6,7 +6,6 @@ import { createVideogame, getGenres, getPlatforms } from '../../redux/actions'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 
-
 const Form = () => {
 
   const initialValues = {

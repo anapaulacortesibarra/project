@@ -32,5 +32,4 @@ const Searchbar = () => {
     </form>
   )
 }
-
 export default Searchbar;
