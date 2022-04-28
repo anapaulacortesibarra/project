@@ -30,15 +30,37 @@ const Pagination = () => {
     setCurrentPage(pageNumber);
   };
 
+  const paginas = Math.ceil(videogames.length / gamesPerPage);
+
+  function handleNext(e) {
+    e.preventDefault();
+    if (currentPage < paginas) {
+      setCurrentPage(currentPage + 1);
+    }
+  }
+
+  function handlePrev(e) {
+    e.preventDefault();
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  }
+
   return (
     <div className={style.paginateContainer}>
       <div className={style.ButtonNumber}>
-        <ButtonNumber
-          gamesPerPage={gamesPerPage}
-          videogamesCopy={videogames?.length}
-          pagination={pagination}
-          currentPage={currentPage}
-        />
+        <div className={style.prev}>
+          <button className={style.button_A} onClick={(e) => handlePrev(e)}>{" << previous "}</button>
+          <div>
+            <ButtonNumber
+              gamesPerPage={gamesPerPage}
+              videogamesCopy={videogames?.length}
+              pagination={pagination}
+              currentPage={currentPage}
+            />
+          </div>
+          <button className={style.button_B} onClick={(e) => handleNext(e)}>{"next >>"}</button>
+        </div>
         <div className={style.cards}>
           {
             currentGames?.map(games => {

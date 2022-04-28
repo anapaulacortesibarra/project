@@ -1,5 +1,5 @@
 .container{
-  margin-left: 38%;
+ margin-left: 25%;
 }
 
 .number{
@@ -36,11 +36,6 @@ align-items: center;
 justify-content: center;
 cursor: pointer;
 padding: 0 15px;
-}
-
-.pageNumbers li a.active{
-background-color: aliceblue !important;
-color: #202020;
 }
 
 .pageNumbers li button{
