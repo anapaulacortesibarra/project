@@ -1,5 +1,23 @@
 .container{
-  margin-left: 36%;
+  margin-left: 38%;
+}
+
+.number{
+color: white;
+text-decoration: none;
+}
+
+.color1{
+  background-color: #202020;
+  color: aliceblue;
+  text-decoration: none;
+}
+
+.color2{
+  background-color: aliceblue;
+  color:#202020;
+  text-decoration: none;
+
 }
 
 .pageNumbers{
@@ -13,8 +31,6 @@
 background: #202020;
 color: aliceblue;
 max-width: auto;
-min-width: var(--size);
-height: var(--size);
 display: flex;
 align-items: center;
 justify-content: center;

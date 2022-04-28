@@ -25,27 +25,10 @@ const Pagination = () => {
     setCurrentPage(1)
   }, [videogames, genres]);
 
-  const [pageNumberLimit, setPageNumberLimit] = useState(5);
-  const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5);
-  const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
 
-  const handleNextBtn = () => {
-    setCurrentPage(currentPage + 1);
-
-    if (currentPage + 1 > maxPageNumberLimit) { // si estoy en pag 5 y el +1 supera mi limite, traeme otros 5 pag mas
-      setMaxPageNumberLimit(maxPageNumberLimit + pageNumberLimit)
-      setMinPageNumberLimit(minPageNumberLimit + pageNumberLimit)
-    }
-  }
-
-  const handlePrevBtn = () => {
-    setCurrentPage(currentPage - 1);
-
-    if ((currentPage - 1) % pageNumberLimit === 0) { // si current page 6 - 1 = 5 y 5 es modulo de 5 dando 0 podemos movernos
-      setMaxPageNumberLimit(maxPageNumberLimit - pageNumberLimit)
-      setMinPageNumberLimit(minPageNumberLimit - pageNumberLimit)
-    }
-  }
+  const pagination = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
 
   return (
     <div className={style.paginateContainer}>
@@ -53,12 +36,8 @@ const Pagination = () => {
         <ButtonNumber
           gamesPerPage={gamesPerPage}
           videogamesCopy={videogames?.length}
-          setCurrentPage={setCurrentPage}
+          pagination={pagination}
           currentPage={currentPage}
-          maxPageNumberLimit={maxPageNumberLimit}
-          minPageNumberLimit={minPageNumberLimit}
-          handlePrevBtn={handlePrevBtn}
-          handleNextBtn={handleNextBtn}
         />
         <div className={style.cards}>
           {
@@ -81,3 +60,14 @@ const Pagination = () => {
 }
 
 export default Pagination;
+
+{/* <ButtonNumber
+gamesPerPage={gamesPerPage}
+videogamesCopy={videogames?.length}
+setCurrentPage={setCurrentPage}
+currentPage={currentPage}
+maxPageNumberLimit={maxPageNumberLimit}
+minPageNumberLimit={minPageNumberLimit}
+handlePrevBtn={handlePrevBtn}
+handleNextBtn={handleNextBtn}
+/> */}
