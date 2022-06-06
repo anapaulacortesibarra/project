@@ -1,0 +1,67 @@
+https://api.rawg.io/api/games?key=3b5f14eb332c46a398d8f5867c3eaef0
+
+###
+
+GET http://localhost:3001/videogames
+
+###
+
+GET http://localhost:3001/videogames?name=portal
+
+###
+POST http://localhost:3001/videogame 
+Content-Type: application/json
+
+{
+  "name": "anapaulacortib",
+  "rating": 4,
+  "released": "1994-07-21",
+  "genreId": [4],
+  "platforms": ["Xbox"],
+  "description_raw": "a great game"
+}
+
+###
+
+
+POST http://localhost:3001/videogame 
+Content-Type: application/json
+
+{
+  "name": "anapaulaC",
+  "rating": 3.5,
+  "released": "1994-07-21",
+  "genreId": [4, 51],
+  "platforms": ["Xbox", "PC"],
+  "description_raw": "a wonderful game"
+}
+
+###
+GET http://localhost:3001/videogames?name=mario
+
+
+###
+GET http://localhost:3001/videogame/3498 
+
+###
+
+GET http://localhost:3001/videogame/2ea0e058-f69b-43f2-a7b2-18a528cf7362
+
+###
+
+GET http://localhost:3001/genres
+
+###
+
+GET http://localhost:3001/platforms
+
+###
+
+GET http://localhost:3001/videogames/origen?origen=db
+
+###
+
+
+
+
+
