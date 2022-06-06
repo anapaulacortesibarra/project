@@ -26,6 +26,8 @@ const Pagination = () => {
   }, [videogames, genres]);
 
 
+
+
   const pagination = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
@@ -50,7 +52,12 @@ const Pagination = () => {
     <div className={style.paginateContainer}>
       <div className={style.ButtonNumber}>
         <div className={style.prev}>
-          <button className={style.button_A} onClick={(e) => handlePrev(e)}>{" << previous "}</button>
+          {
+            currentPage === 1
+              ? null
+              : <button className={style.button_A} onClick={(e) => handlePrev(e)}>{" << previous "}</button>
+
+          }
           <div>
             <ButtonNumber
               gamesPerPage={gamesPerPage}
@@ -59,7 +66,11 @@ const Pagination = () => {
               currentPage={currentPage}
             />
           </div>
-          <button className={style.button_B} onClick={(e) => handleNext(e)}>{"next >>"}</button>
+          {
+            currentPage >= 7
+              ? null
+              : <button className={style.button_B} onClick={(e) => handleNext(e)}>{"next >>"}</button>
+          }
         </div>
         <div className={style.cards}>
           {
@@ -82,14 +93,3 @@ const Pagination = () => {
 }
 
 export default Pagination;
-
-{/* <ButtonNumber
-gamesPerPage={gamesPerPage}
-videogamesCopy={videogames?.length}
-setCurrentPage={setCurrentPage}
-currentPage={currentPage}
-maxPageNumberLimit={maxPageNumberLimit}
-minPageNumberLimit={minPageNumberLimit}
-handlePrevBtn={handlePrevBtn}
-handleNextBtn={handleNextBtn}
-/> */}
