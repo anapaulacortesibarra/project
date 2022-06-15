@@ -3,6 +3,7 @@ import { getVideogameByName } from "../../redux/actions";
 import { useState } from "react";
 import style from './Searchbar.module.css'
 
+
 const Searchbar = () => {
 
   const dispatch = useDispatch()

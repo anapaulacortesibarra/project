@@ -1,4 +1,6 @@
 .container {
+  background-color: #202020;
+  background-color: transparent;
   display: flex;
   flex-direction: column;
   justify-content: center; 
@@ -7,15 +9,11 @@
   height: 100vh;
   top: 0;
   bottom: 0;
-  background-image: url("./Landing_img.png") ;
-  background-position: center;
-  background-size: cover;
-  z-index: -1;
   text-align: center;
   font-size: 50px;
 }
 
-.title_landing{
+.title{
   color: transparent;
   -webkit-text-stroke: 4px white;
   filter:drop-shadow(30px 10px 4px #090804)

@@ -1,17 +1,36 @@
 import style from './Landing.module.css';
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react';
+import { getVideogames } from '../../redux/actions';
+import { useDispatch } from 'react-redux';
+import { Button } from "react-bootstrap"
+import 'animate.css';
+
 
 
 function Landing() {
+
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+
+  const goBack = () => {
+    navigate("/videogames")
+  }
+
+  useEffect(() => {
+    dispatch(getVideogames());
+  }, [dispatch]);
+
   return (
     <div className={style.container}>
       <div>
-        <h1 className={style.title_landing}>VIDEOGAMES</h1>
+        <h1 className="animate__animated animate__bounce title">VIDEOGAMES</h1>
       </div>
       <div>
-        <Link className={style.link} to="/videogames">
+        <Button onClick={goBack} variant="dark" size="lg">
           EXPLORE
-        </Link>
+        </Button>
       </div>
     </div>
   )

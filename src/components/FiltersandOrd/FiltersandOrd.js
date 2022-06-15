@@ -8,7 +8,7 @@ import OrderingByRating from '../Ordering/OrderingByRating';
 const FiltersandOrd = () => {
 
     return (
-        <div className={style.div}>
+        <div className={style.filters}>
             <div className={style.container}>
                 <OrderingByAlph />
                 <OrderingByRating />

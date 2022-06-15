@@ -1,29 +1,39 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { cleanDetail, getVideogameDetail } from '../../redux/actions';
 import Navbar from '../Navbar/Navbar';
 import style from './Detail.module.css'
-import { Link } from 'react-router-dom';
+import Loader from '../Spinner/Spinner';
+import { Button } from "react-bootstrap"
 
 const Detail = () => {
 
   const dispatch = useDispatch();
+  const navigate = useNavigate()
+
   const params = useParams();
   const game = useSelector(state => state.detail)
   let gameId = params.id;
 
+  const [loading, setLoading] = useState(false)
   useEffect(() => {
     dispatch(getVideogameDetail(gameId))
     return () => { dispatch(cleanDetail()) }
   }, [gameId]);
+
+  const goBack = () => {
+    navigate("/videogames")
+  }
+
 
   return (
     <div>
       <Navbar />
       <div className={style.container}>
         {
-          Object.keys(game).length ?
+          Object.keys(game).length && loading === false
+            ?
             <div className={style.detailContainer}>
               <img className={style.image} src={game.data.background_image} alt={'img'} />
               <div className={style.data}>
@@ -34,16 +44,16 @@ const Detail = () => {
                 <h6>Platforms: {game.data.platforms}</h6>
                 <h6>Rating: {game.data.rating}</h6>
                 <div className={style.button}>
-                  <Link className={style.link} to="/videogames">
+                  <Button onClick={goBack} variant="dark">
                     GO BACK
-                  </Link>
+                  </Button>
                 </div>
-
-
 
               </div>
             </div>
-            : <h1>loading</h1>
+
+
+            : <Loader animation="border" />
         }
       </div>
     </div>

@@ -31,7 +31,16 @@
   color:antiquewhite;
   margin-right: 67%;
   margin-bottom: 0;
+  width: 100% 
+}
+
+.text1{
+  font-family: Titillium Web;
+  color:antiquewhite;
+  margin-right: 67%;
+  margin-bottom: 3%;
   width: 100%;
+
 }
 
 .input {
@@ -80,11 +89,31 @@
 }
 
 
-
-
-
 .error {
   color: #C0392B ;
   font-family: Titillium Web;
   font-size: 15px;
+}
+
+
+@media only screen and (min-width: 480px) and (max-width: 986px)  {
+
+  .titleText{
+    font-family: Titillium Web;
+    text-transform: uppercase;
+    color:antiquewhite;
+    width: 80%;
+    height: 30px;
+    margin-left: 10%;
+    margin-bottom: 12%;
+  }
+
+  .container{
+    width: 50%;
+    border-radius: 10px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+  }
+
 }

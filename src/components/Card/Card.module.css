@@ -2,7 +2,7 @@
 	position: relative;
 	width: 210px;
 	height: 350px;
-	box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+	box-shadow: 0px 1px 14px rgba(0,0,0,0.2);
 	margin-left: 25px;
 	margin-bottom: 20px;
 	border-radius: 6px;
@@ -46,9 +46,9 @@
 
 .genres{
 	width: 90%;
-	height: 15px;
+	height: 15px !important;
 	text-align: center;
-	font-size: 25px;
+	font-size: 25px !important;
 	text-align: center;
 }
 

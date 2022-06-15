@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Swal from 'sweetalert2'
 
 
 export const getVideogames = () => {
@@ -23,7 +24,13 @@ export const getVideogameByName = (payload) => {
           type: "GET_VIDEOGAME_BY_NAME",
           payload: data
         })
-      }).catch(error => alert(error, 'The videogame does not exist'))
+      }).catch(error => Swal.fire({
+        error,
+        title: 'Ups!',
+        text: 'That videogame does not exist',
+        icon: 'error',
+        confirmButtonText: 'Close'
+      }))
   }
 }
 

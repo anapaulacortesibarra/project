@@ -23,7 +23,7 @@ function ButtonNumber({ gamesPerPage, videogamesCopy, pagination, currentPage })
           return (
             <div>
               <li key={number}>
-                <a className={colorr(number)} onClick={() => pagination(number)} href="#">
+                <a className={colorr(number)} onClick={() => pagination(number)}>
                   {number}
                 </a>
               </li>

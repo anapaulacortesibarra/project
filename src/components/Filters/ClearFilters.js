@@ -1,7 +1,7 @@
 import style from '../FiltersandOrd/FiltersandOrd.module.css'
 import { useDispatch } from "react-redux";
 import { getVideogames } from "../../redux/actions";
-import { useEffect, useState } from 'react'
+import { Button } from 'react-bootstrap';
 
 
 const ClearFilters = () => {
@@ -15,7 +15,7 @@ const ClearFilters = () => {
 
 
   return (
-    <button className={style.btn} onClick={(e) => handleClick(e)}>Clear Filters</button>
+    <Button variant="dark" className={style.clear} onClick={(e) => handleClick(e)}>Clear Filters</Button>
   )
 }
 export default ClearFilters;

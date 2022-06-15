@@ -14,12 +14,14 @@ const FilterByOrigin = () => {
   }
 
   return (
-    <select className={style.selectContainer} onChange={(e) => handleFilterByOrigin(e)}>
-      <option value="" hidden>Filter by Origin</option>
-      <option value="all">All</option>
-      <option value="API">API</option>
-      <option value="db">DATABASE</option>
-    </select>
+    <div className={style.filters}>
+      <select onChange={(e) => handleFilterByOrigin(e)}>
+        <option value="" hidden>Filter by Origin</option>
+        <option value="all">All</option>
+        <option value="API">API</option>
+        <option value="db">DATABASE</option>
+      </select>
+    </div>
   )
 
 }

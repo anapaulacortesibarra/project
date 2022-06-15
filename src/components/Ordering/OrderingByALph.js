@@ -13,11 +13,13 @@ const OrderingByAlph = () => {
   }
 
   return (
-    <select className={style.selectContainer} onChange={(e) => handleOrdering(e)}>
-      <option value="" hidden> Sort by Alph</option>
-      <option value="asc">Ordering A-Z</option>
-      <option value="desc">Ordering Z-A</option>
-    </select>
+    <div className={style.filters}>
+      <select onChange={(e) => handleOrdering(e)}>
+        <option value="" hidden> Sort by Alph</option>
+        <option value="asc">Ordering A-Z</option>
+        <option value="desc">Ordering Z-A</option>
+      </select>
+    </div>
   )
 }
 export default OrderingByAlph;
