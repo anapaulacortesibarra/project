@@ -61,7 +61,6 @@ GET http://localhost:3001/videogames/origen?origen=db
 
 ###
 
-
-
+DELETE http://localhost:3001/videogame/f53d9146-08e1-42fa-b638-56341c3c8c8c
 
 

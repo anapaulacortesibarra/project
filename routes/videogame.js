@@ -51,18 +51,22 @@ router.post("/", async (req, res) => {
   try {
     const { name, released, description_raw, genreId, rating, platforms, background_image } = req.body
 
-    if (name && released && description_raw && rating && genreId && platforms) {
+    const plat = platforms.map(el => el.value)
+
+
+    if (name && released && description_raw && rating && genreId && plat) {
       let videogame = await Videogame.create({
         name,
         released,
         description_raw,
-        platforms,
+        platforms: plat,
         rating,
         background_image
       })
         .then(results => {
-          return results.addGenre(genreId)
+          return genreId.map(g => results.addGenre(g.value))
         })
+
       res.status(201).json(videogame)
 
     }
@@ -70,5 +74,20 @@ router.post("/", async (req, res) => {
     res.status(404).send(error, 'Ups, something went wrong')
   }
 });
+
+router.delete('/:id', async (req, res) => {
+
+  const { id } = req.params
+  const videogames = await Videogame.findAll()
+  const checked = videogames.filter(el => el.id === id)
+
+  if (checked.length) {
+    return res.json(await Videogame.destroy({ where: { id: id } }))
+
+  } else {
+    res.status(404).send('Ups, something went wrong')
+  }
+
+})
 
 module.exports = router;

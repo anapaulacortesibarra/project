@@ -15,5 +15,6 @@ router.use('/videogames', videogames);
 router.use("/videogame", videogame);
 router.use("/genres", genres);
 router.use("/platforms", platforms);
+router.delete("/videogame/:id", videogame)
 
 module.exports = router;
